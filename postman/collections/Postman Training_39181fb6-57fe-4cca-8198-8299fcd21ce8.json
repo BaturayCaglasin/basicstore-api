@@ -1,0 +1,417 @@
+{
+	"info": {
+		"_postman_id": "d0f7d7ad-b145-49ba-8f12-d365eca30b9c",
+		"name": "Postman Training",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Status Control",
+			"id": "312c1149-53ba-4ce5-8b9e-db10daa7be91",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/status",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"status"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Products",
+			"id": "c0e57192-595f-46d8-bae3-cbb6bcdcc022",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/products",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"products"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get a Product - by category",
+			"id": "d9326c5c-2675-4706-9f4f-c71c18260f9a",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/products?category=candy",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"products"
+					],
+					"query": [
+						{
+							"key": "category",
+							"value": "candy",
+							"description": "returns all candies"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get a Product - by instock status - api does not support parameter: inStock",
+			"id": "16029d65-039b-4eca-bffb-3bf6fea22423",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/products?inStock=true&inStock=false",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"products"
+					],
+					"query": [
+						{
+							"key": "inStock",
+							"value": "true",
+							"description": "returns all stocked products"
+						},
+						{
+							"key": "inStock",
+							"value": "false",
+							"description": "returns all non - stocked products"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get a Product - 5 products",
+			"id": "8faf1064-1453-4885-9085-11aa2a98efd2",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/products?results=5",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"products"
+					],
+					"query": [
+						{
+							"key": "results",
+							"value": "5",
+							"description": "returns 5 products"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get a Product - 10 products",
+			"id": "c7a0f634-f332-4a32-9530-d6e7bd8c53b6",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/products?results=10",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"products"
+					],
+					"query": [
+						{
+							"key": "results",
+							"value": "10",
+							"description": "returns 10 products"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get a Product from Path Var",
+			"id": "883cdde6-d803-497a-85ce-e5e2c922625f",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/products/:productId",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"products",
+						":productId"
+					],
+					"variable": [
+						{
+							"id": "6648887c-a93a-453c-8e58-2cf767fdf2e6",
+							"key": "productId",
+							"value": "4643"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create a New Cart",
+			"id": "c1bbda86-5861-4721-9661-f5397cd46dc8",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/carts",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"carts"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get a Cart Information",
+			"id": "f619c953-139d-4a7f-af94-ba18f4e36967",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/carts/:cartId",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"carts",
+						":cartId"
+					],
+					"variable": [
+						{
+							"id": "675faa9a-4809-4be5-bfc6-811c0e155048",
+							"key": "cartId",
+							"value": "MIPENuvFxl4wA7HDQQn5H"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add an Item to Cart",
+			"id": "ff426c13-538f-476d-9651-64204f0364fc",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n   \"productId\": 4646,\n   \"quantity\": 10\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/carts/:cartId/items",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"carts",
+						":cartId",
+						"items"
+					],
+					"variable": [
+						{
+							"id": "b977b17e-d9d3-43c3-8abf-d56883d7ab0b",
+							"key": "cartId",
+							"value": "MIPENuvFxl4wA7HDQQn5H"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Cart Items",
+			"id": "a28fe4b0-7113-4771-ae38-510da8870e28",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/carts/:cartId/items",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"carts",
+						":cartId",
+						"items"
+					],
+					"variable": [
+						{
+							"id": "31b1292f-57cf-4f8b-b949-9866603fdab4",
+							"key": "cartId",
+							"value": "MIPENuvFxl4wA7HDQQn5H"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create a New Order",
+			"id": "5fcb25e3-db78-4b8a-b096-0c7d291219a9",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "123",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"cartId\":\"MIPENuvFxl4wA7HDQQn5H\",\n    \"customerName\":\"abc\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/orders",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"orders"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"variable": [
+		{
+			"id": "a1ceac0f-e93b-4d43-ab95-896db1f6d845",
+			"key": "baseUrl",
+			"value": "https://simple-grocery-store-api.glitch.me"
+		}
+	]
+}
