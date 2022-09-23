@@ -288,9 +288,8 @@
 					],
 					"variable": [
 						{
-							"id": "675faa9a-4809-4be5-bfc6-811c0e155048",
 							"key": "cartId",
-							"value": "MIPENuvFxl4wA7HDQQn5H"
+							"value": "{{cartId}}"
 						}
 					]
 				}
@@ -327,9 +326,141 @@
 					],
 					"variable": [
 						{
-							"id": "b977b17e-d9d3-43c3-8abf-d56883d7ab0b",
 							"key": "cartId",
-							"value": "MIPENuvFxl4wA7HDQQn5H"
+							"value": "{{cartId}}"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Modify an Item in the Cart",
+			"id": "05bdfcf0-275d-4f3b-9de2-4cbc70f9ebfc",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"quantity\":\"2\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/carts/:cartId/items/:itemId",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"carts",
+						":cartId",
+						"items",
+						":itemId"
+					],
+					"variable": [
+						{
+							"key": "cartId",
+							"value": "{{cartId}}"
+						},
+						{
+							"key": "itemId",
+							"value": "{{itemId}}"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Replace an Item in the Cart",
+			"id": "af7dffcb-9fb5-4cfc-af23-fd4ea111948f",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"productId\":\"4643\",\n    \"quantity\":\"3\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/carts/:cartId/items/:itemId",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"carts",
+						":cartId",
+						"items",
+						":itemId"
+					],
+					"variable": [
+						{
+							"id": "47fddab3-9655-4cf2-b735-df657a2604d0",
+							"key": "cartId",
+							"value": "{{cartId}}"
+						},
+						{
+							"id": "3726ba3a-bb68-4200-8eff-97331ddbace6",
+							"key": "itemId",
+							"value": "{{itemId}}"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Item in the Cart",
+			"id": "c29c255a-85f5-4f91-ae0a-8a38f77aa0a8",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"productId\":\"4646\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/carts/:cartId/items/:itemId",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"carts",
+						":cartId",
+						"items",
+						":itemId"
+					],
+					"variable": [
+						{
+							"id": "47fddab3-9655-4cf2-b735-df657a2604d0",
+							"key": "cartId",
+							"value": "{{cartId}}"
+						},
+						{
+							"id": "3726ba3a-bb68-4200-8eff-97331ddbace6",
+							"key": "itemId",
+							"value": "{{itemId}}"
 						}
 					]
 				}
@@ -357,9 +488,8 @@
 					],
 					"variable": [
 						{
-							"id": "31b1292f-57cf-4f8b-b949-9866603fdab4",
 							"key": "cartId",
-							"value": "MIPENuvFxl4wA7HDQQn5H"
+							"value": "{{cartId}}"
 						}
 					]
 				}
@@ -367,8 +497,8 @@
 			"response": []
 		},
 		{
-			"name": "Create a New Order",
-			"id": "5fcb25e3-db78-4b8a-b096-0c7d291219a9",
+			"name": "Register a New API Client",
+			"id": "a82c8d8f-a9e3-40a2-a7a8-7d7f314b54b9",
 			"protocolProfileBehavior": {
 				"disableBodyPruning": true
 			},
@@ -387,7 +517,47 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n    \"cartId\":\"MIPENuvFxl4wA7HDQQn5H\",\n    \"customerName\":\"abc\"\n}",
+					"raw": "{\n    \"clientName\":\"test\",\n    \"clientEmail\":\"test@email.com\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/api-clients",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"api-clients"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create a New Order",
+			"id": "5fcb25e3-db78-4b8a-b096-0c7d291219a9",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{accessToken}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"cartId\":\"{{cartId}}\",\n    \"customerName\":\"{{$randomFullName}}\"\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -405,13 +575,174 @@
 				}
 			},
 			"response": []
+		},
+		{
+			"name": "Get All Orders",
+			"id": "02185441-5c34-4793-852e-f0e960a07fb1",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{accessToken}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/orders",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"orders"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update an Order",
+			"id": "6016afc1-2c53-4ac7-99ab-80775d179905",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{accessToken}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"customerName\":\"Baturay\",\n    \"comment\":\"New comment for this order!\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/orders/:orderId",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"orders",
+						":orderId"
+					],
+					"variable": [
+						{
+							"key": "orderId",
+							"value": "{{orderId}}"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete an Order",
+			"id": "d855b230-9ea2-4992-9443-8bdd64b13c7b",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{accessToken}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/orders/:orderId",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"orders",
+						":orderId"
+					],
+					"variable": [
+						{
+							"key": "orderId",
+							"value": "{{orderId}}"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "523ec722-cc98-4c25-a5dd-6f5c8bd55e8a",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "1a3b9cd5-c6c9-4893-b7b9-40c2422fd21b",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
 		}
 	],
 	"variable": [
 		{
-			"id": "a1ceac0f-e93b-4d43-ab95-896db1f6d845",
+			"id": "b54b100c-d06a-4deb-8e93-ac4c0fee4786",
 			"key": "baseUrl",
 			"value": "https://simple-grocery-store-api.glitch.me"
+		},
+		{
+			"id": "457889e6-d3be-4680-b88b-39ef5a160ad5",
+			"key": "accessToken",
+			"value": "22592a2035ba461e4af4c33d1567de4633dc1f2a498671c3aab88c101b736c89"
+		},
+		{
+			"id": "08da05b9-6827-4809-8c6d-d38117b2f0cc",
+			"key": "cartId",
+			"value": "",
+			"type": "string"
+		},
+		{
+			"id": "e161e278-2349-4420-9cc4-7ab4ebc68a22",
+			"key": "itemId",
+			"value": "",
+			"type": "string"
+		},
+		{
+			"id": "1c43181e-334a-471a-9074-fb51d9811430",
+			"key": "orderId",
+			"value": "",
+			"type": "string"
 		}
 	]
 }
