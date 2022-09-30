@@ -30,7 +30,10 @@
 							"const response = pm.response.json();",
 							"pm.globals.set(\"boardId\", response.id);",
 							"",
-							""
+							"pm.test(\"Your test name\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData.value).to.eql(100);",
+							"});"
 						],
 						"type": "text/javascript"
 					}
@@ -90,8 +93,14 @@
 					"script": {
 						"id": "4abbe48c-ecaf-4160-b3c3-eb36c443d694",
 						"exec": [
-							"pm.test(\"Status code is 200\", function () {",
-							"    pm.response.to.have.status(200);",
+							"let jsonData = pm.response.json();",
+							"console.log(jsonData)",
+							"",
+							"let name = jsonData.name",
+							"console.log(name);",
+							"",
+							"pm.test(\"Board Name\", function () {",
+							"    pm.expect(jsonData.name).to.eql(\"Board: 1991\");",
 							"});"
 						],
 						"type": "text/javascript"
@@ -254,7 +263,7 @@
 							"});",
 							"",
 							"const response = pm.response.json();",
-							"pm.globals.set(\"idCardd\", response.id);"
+							"pm.environment.set(\"idCardd\", response.id);"
 						],
 						"type": "text/javascript"
 					}
@@ -345,7 +354,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n    \"idList\":\"{{idListt}}\"\n}",
+					"raw": "{\n    \"idList\": \"63334981a7d67302c5df97f3\"\n    \n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -466,13 +475,43 @@
 				}
 			},
 			"response": []
+		},
+		{
+			"name": "Get a Collection ID",
+			"id": "1c59d25f-f69d-4e06-ab4a-b9a67efe29d1",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://api.getpostman.com/collections?apikey=PMAK-6335e7af89429351bd5631cd-dcd5d18ad026bd9ce076208e411e9336b5",
+					"protocol": "https",
+					"host": [
+						"api",
+						"getpostman",
+						"com"
+					],
+					"path": [
+						"collections"
+					],
+					"query": [
+						{
+							"key": "apikey",
+							"value": "PMAK-6335e7af89429351bd5631cd-dcd5d18ad026bd9ce076208e411e9336b5"
+						}
+					]
+				}
+			},
+			"response": []
 		}
 	],
 	"event": [
 		{
 			"listen": "prerequest",
 			"script": {
-				"id": "346f1f2e-884d-4741-b926-20a39b2f25d5",
+				"id": "8bea69b5-e575-469f-b618-9e656fe66eb0",
 				"type": "text/javascript",
 				"exec": [
 					""
@@ -482,7 +521,7 @@
 		{
 			"listen": "test",
 			"script": {
-				"id": "843dd9d2-d3b2-480b-8751-4ceee8a6e102",
+				"id": "acf2c47e-23ce-46b6-b0d2-e7a856d5d3c8",
 				"type": "text/javascript",
 				"exec": [
 					""
@@ -492,34 +531,34 @@
 	],
 	"variable": [
 		{
-			"id": "b76fad69-2735-4a17-99d8-c1021a7d81ca",
+			"id": "5b4759f3-8b86-4140-bd5d-57361e8d8afc",
 			"key": "trelloUrl",
 			"value": "https://api.trello.com",
 			"type": "string",
 			"disabled": true
 		},
 		{
-			"id": "bf513e3e-cb00-4b9d-ab8d-44d23759a6b3",
+			"id": "6fc3b9b0-fd75-4876-b475-f9b519099ec2",
 			"key": "{{key}}",
-			"value": "8edca0ff27a7135fcba1feaca61e0299",
+			"value": "",
 			"type": "string",
 			"disabled": true
 		},
 		{
-			"id": "95232471-fccf-4353-91c3-7a3873415039",
+			"id": "24261e1b-d96c-4263-87b6-595c1f605b29",
 			"key": "{{token}}",
-			"value": "132b7184689afdf9935b262f83072bf54a4068c3694ad44b86a7286502cf5907",
+			"value": "",
 			"type": "string",
 			"disabled": true
 		},
 		{
-			"id": "bdd0f1f8-85d6-42dd-930f-34b8c0120d93",
+			"id": "d611ff93-b50a-4092-8793-13eaddda43df",
 			"key": "name",
 			"value": "batu's board",
 			"type": "string"
 		},
 		{
-			"id": "045d22eb-dccd-41f4-bd08-0c97fe430fb3",
+			"id": "5bb47444-bf37-47a5-8aa9-07efe1c237ec",
 			"key": "boardId",
 			"value": "",
 			"disabled": true
